@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.id = "iframeContainer"
                 link.src = scannedData;
                 link.title = "URL"
-                link.width = "100%"; // You can adjust width/height as needed
-                link.height = "100%"; // Adjust as needed
+                link.width = "80%"; // You can adjust width/height as needed
+                link.height = "80%"; // Adjust as needed
 
                 // // Append the iframe to the body (or another container element)
                 // document.getElementsByClassName('container')[0].style.display = 'none'; // Replace 'some-class' with the actual class name to remove
