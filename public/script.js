@@ -17,21 +17,26 @@ document.addEventListener('DOMContentLoaded', () => {
         inputTimeout = setTimeout(() => {
             // Check if the input is a valid URL (basic check)
             if (scannedData && (scannedData.startsWith('http://') || scannedData.startsWith('https://'))) {
-                // <iframe src={scannedData} title={"URL"}></iframe>
-                // var link = document.createElement('iframe');
-                // link.src = scannedData;
-                // link.title = "URL"
-                // link.width = "100%"; // You can adjust width/height as needed
-                // link.height = "100%"; // Adjust as needed
+                //check if iframe exist, else create
+                var iframeExist = document.getElementById('iframeContainer')
+                if(iframeExist){
+                    iframeExist.parentElement.removeChild(iframeExist)
+                }
+                var link = document.createElement('iframe');
+                link.id = "iframeContainer"
+                link.src = scannedData;
+                link.title = "URL"
+                link.width = "100%"; // You can adjust width/height as needed
+                link.height = "100%"; // Adjust as needed
 
                 // // Append the iframe to the body (or another container element)
                 // document.getElementsByClassName('container')[0].style.display = 'none'; // Replace 'some-class' with the actual class name to remove
-                // document.body.appendChild(link);
+                document.body.appendChild(link);
 
                 // console.log(link)
                 // link.rel = "noopener noreferrer"
                 // document.body.appendChild(link).click();
-                window.open(scannedData, '_blank'); // Open the URL in a new tab
+                // window.open(scannedData, '_blank'); // Open the URL in a new tab
                 event.target.value = ''; // Clear the input field
             }else{
                 event.target.value = ''; // Clear the input field
